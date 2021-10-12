@@ -10,11 +10,6 @@ pipeline {
      timeout(time: 12, unit: 'HOURS')
   }
   stages {
-    
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
-        
-    }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
