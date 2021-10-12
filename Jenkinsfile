@@ -4,11 +4,7 @@ pipeline {
     
   agent { label 'master'
         }
-  options {
-     buildDiscarder(logRotator(numToKeepStr:  '10', daysToKeepstr: '20'))
-     timestamps()
-     timeout(time: 12, unit: 'HOURS')
-  }
+
   stages {
 
     stage('Build image') {
