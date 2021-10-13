@@ -1,16 +1,8 @@
-FROM debian:9
-
-RUN apt-get update -yq \
-&& apt-get install curl gnupg -yq \
-&& curl -sL https://deb.nodesource.com/setup_10.x | bash \
-&& apt-get install nodejs -yq \
-&& apt-get clean -y
-
-ADD . /app/
+# syntax=docker/dockerfile:1
+FROM node:12-alpine
+RUN apk add --no-cache python g++ make
 WORKDIR /app
-RUN npm install
+COPY . .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
 
-EXPOSE 2368
-VOLUME /app/logs
-
-CMD npm run start
