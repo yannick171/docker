@@ -1,3 +1,3 @@
 echo "Hello Word fom is Run step"
-docker run -d -p 2368:2368 ocr-docker-build
+docker run -dp 3000:3000 getting-started
 
