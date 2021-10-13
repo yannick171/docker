@@ -1,8 +1,9 @@
 #!groovy
 
 def cmdline1 ="./build.sh"
-def cmdline2 ="./launch.sh"
-def cmdline3 ="./push.sh"
+def cmdline2 ="./run.sh"
+def cmdline3 ="./launch.sh"
+def cmdline4 ="./push.sh"
 pipeline {
     
   agent { label 'master'
@@ -22,7 +23,7 @@ pipeline {
         }
     }
 
-    stage('Test image') { 
+    stage('Run image') { 
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
@@ -32,7 +33,7 @@ pipeline {
         }
     }
 
-    stage('Push image') {
+    stage('Test image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
@@ -41,6 +42,18 @@ pipeline {
             script { 
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh (script: cmdline3)
+            } 
+        }
+    }
+      stage('Push image') {
+        /* Finally, we'll push the image with two tags:
+         * First, the incremental build number from Jenkins
+         * Second, the 'latest' tag.
+         * Pushing multiple tags is cheap, as all the layers are reused. */
+        steps{ 
+            script { 
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh (script: cmdline4)
             } 
         }
     }
