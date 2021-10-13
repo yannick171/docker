@@ -1,2 +1,2 @@
 
-echo "Hello Word hier is launch step"
+echo "Hello Word hier is push step"
