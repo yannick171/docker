@@ -1,2 +1,2 @@
 #docker build -t orc-docker-build .
-echo "Hello Word"
+echo "Hello Word hier is buid step"
