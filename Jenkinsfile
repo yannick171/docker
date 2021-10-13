@@ -15,6 +15,7 @@ pipeline {
          * docker build on the command line */
         steps{
             script { 
+                sh "chmod +x -R ${env.WORKSPACE}"
                 sh (script: cmdline1)
                 
             }
@@ -26,6 +27,7 @@ pipeline {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         steps {
+             sh "chmod +x -R ${env.WORKSPACE}"
              sh (script: cmdline2)
         }
     }
@@ -37,7 +39,8 @@ pipeline {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         steps{ 
             script { 
-                 sh (script: cmdline3)
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh (script: cmdline3)
             } 
         }
     }
