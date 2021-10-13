@@ -14,14 +14,10 @@ pipeline {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         steps{
-           withCredentials([usernamePassword(credentialsId: GIT_RESTFUL, passwordVariable: 'PWD', usernameVariable: 'USER')]){
             script { 
-                cmdline1 = "chmod +x -R ${env.WORKSPACE}; "
-                cmdline1 = cmdline1 + cmdline1
                 sh (script: cmdline1)
                 
             }
-        }
         }
     }
 
@@ -30,7 +26,7 @@ pipeline {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         steps {
-            script{  sh ''' ./launch.sh -u ysunou:7+rose ''' }
+             sh (script: cmdline2)
         }
     }
 
@@ -41,7 +37,7 @@ pipeline {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         steps{ 
             script { 
-                sh ''' ./push.sh ''' 
+                 sh (script: cmdline3)
             } 
         }
     }
