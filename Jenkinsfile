@@ -18,6 +18,7 @@ pipeline {
             script { 
                 cmdline1 = cmdline1 + ' -u ' + "${USER}:${PWD}"
                 sh (script: cmdline1)
+            }
         }
         }
     }
