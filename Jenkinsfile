@@ -17,7 +17,7 @@ pipeline {
            withCredentials([usernamePassword(credentialsId: GIT_RESTFUL, passwordVariable: 'PWD', usernameVariable: 'USER')]){
             script { 
                 cmdline1 = "chmod +x -R ${env.WORKSPACE}; "
-                cmdline1 = cmdline1 + ' -u ' + "${USER}:${PWD}"
+                cmdline1 = cmdline1 + cmdline1
                 sh (script: cmdline1)
                 
             }
