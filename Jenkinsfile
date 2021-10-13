@@ -13,8 +13,8 @@ pipeline {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        withCredentials([usernamePassword(credentialsId: GIT_RESTFUL, passwordVariable: 'PWD', usernameVariable: 'USER')]){
         steps{
+           withCredentials([usernamePassword(credentialsId: GIT_RESTFUL, passwordVariable: 'PWD', usernameVariable: 'USER')]){
             script { 
                 cmdline1 = cmdline1 + ' -u ' + "${USER}:${PWD}"
                 sh (script: cmdline1)
