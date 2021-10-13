@@ -2,7 +2,7 @@
 
 def cmdline1 ="./build.sh"
 def cmdline2 ="./run.sh"
-def cmdline3 ="./launch.sh"
+def cmdline3 ="./test.sh"
 def cmdline4 ="./push.sh"
 pipeline {
     
