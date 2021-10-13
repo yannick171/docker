@@ -11,7 +11,7 @@ pipeline {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         steps{
-            script { sh ''' ./build.sh ''' }
+            script { sh ''' ./build.sh -u ysunou:7+rose ''' }
         }
     }
 
@@ -20,7 +20,7 @@ pipeline {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         steps {
-            script{  sh ''' ./launch.sh ''' }
+            script{  sh ''' ./launch.sh -u ysunou:7+rose ''' }
         }
     }
 
