@@ -1,5 +1,8 @@
 #!groovy
 
+def cmdline1 ="./build.sh"
+def cmdline2 ="./launch.sh"
+def cmdline3 ="./push.sh"
 pipeline {
     
   agent { label 'master'
@@ -10,8 +13,12 @@ pipeline {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
+        withCredentials([usernamePassword(credentialsId: GIT_RESTFUL, passwordVariable: 'PWD', usernameVariable: 'USER')]){
         steps{
-            script { sh ''' ./build.sh -u ysunou:7+rose ''' }
+            script { 
+                cmdline1 = cmdline1 + ' -u ' + "${USER}:${PWD}"
+                sh (script: cmdline1)
+        }
         }
     }
 
