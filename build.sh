@@ -1,3 +1,3 @@
 echo "Hello Word from is buid step"
-docker build -t myApp .
+docker build -t myapp .
 
