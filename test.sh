@@ -1,3 +1,3 @@
-export DISPLAY=:0
+#export DISPLAY=:0
 echo "Hello Word from Test step"
-firefox  "http://localhost:2368"
+#firefox  "http://localhost:2368"
