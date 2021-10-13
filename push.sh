@@ -1,2 +1,2 @@
 
-echo "Hello Word hier is push step"
+echo "Hello Word from is push step"
